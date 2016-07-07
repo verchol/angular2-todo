@@ -1,8 +1,8 @@
   version: '1.0'
-#https://hooks.slack.com/services/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
+  #ci-cd flow
   steps:
 
-  
+
     build-image:
       type: build
       description: angular example
