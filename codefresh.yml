@@ -27,7 +27,8 @@
 
 
     unit tests:
-      image: codefresh/angular2-todo:${{CF_BRANCH}}
+      image: ${{build-image}}
+        #codefresh/angular2-todo:${{CF_BRANCH}}
       commands:
          - echo running unit tests
          - gulp tslint
