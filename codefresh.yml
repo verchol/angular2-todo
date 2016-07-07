@@ -27,11 +27,10 @@
 
 
     unit tests:
-      image: ncodefresh/nodeall:latest
-      #node:6.3.0-onbuild
+      image: node:6.3.0-onbuild
         #codefresh/angular2-todo:${{CF_BRANCH}}
       commands:
-         #- npm install gulp
+         - npm install
          - echo running unit tests
          - gulp tslint
          #- curl http://18391060.ngrok.io
