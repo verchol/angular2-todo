@@ -6,7 +6,7 @@
     build-image:
       type: build
       description: angular example
-      image-name: verchol/angular2-todo
+      image-name: ncodefresh/angular2-todo
       dockerfile: Dockerfile
       tag: ${{CF_BRANCH}}
 
