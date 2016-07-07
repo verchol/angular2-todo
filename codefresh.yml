@@ -30,7 +30,7 @@
       image: node:6.3.0-onbuild
         #codefresh/angular2-todo:${{CF_BRANCH}}
       commands:
-         - npm install -g gulp
+         - npm install gulp
          - echo running unit tests
          - gulp tslint
          #- curl http://18391060.ngrok.io
