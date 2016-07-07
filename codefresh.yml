@@ -6,15 +6,15 @@
     build-image:
       type: build
       description: angular example
-      image-name: codefresh/angular2-todo
+      image-name: verchol/angular2-todo
       dockerfile: Dockerfile
       tag: ${{CF_BRANCH}}
 
-    #push-to-registry:
-    #  type: push
-    #  candidate: ${{build-image}}
-    #  tag: ${{CF_BRANCH}}
-    #  registry: #Optional
+    push-to-registry:
+    type: push
+       candidate: ${{build-image}}
+       tag: ${{CF_BRANCH}}
+    #registry: #Optional
     # credentials: #Optional
       #  username:
       #  password:
@@ -27,7 +27,7 @@
 
 
     unit tests:
-      image: ${{build-image}}
+      image: node:6.3.0-onbuild
         #codefresh/angular2-todo:${{CF_BRANCH}}
       commands:
          - echo running unit tests
