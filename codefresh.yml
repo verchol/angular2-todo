@@ -14,11 +14,10 @@
       type: push
       candidate: ${{build-image}}
       tag: ${{CF_BRANCH}}
-      registry: #Optional
-
-      #credentials: #Optional
-        #username:verchol
-        #password:oleg1314
+    #  registry: #Optional
+    # credentials: #Optional
+      #  username:
+      #  password:
 
 
     #push-dockerhub:
