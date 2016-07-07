@@ -2,7 +2,7 @@
 #https://hooks.slack.com/services/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
   steps:
 
-
+  
     build-image:
       type: build
       description: angular example
