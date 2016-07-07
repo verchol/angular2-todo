@@ -10,10 +10,10 @@
       dockerfile: Dockerfile
       tag: ${{CF_BRANCH}}
 
-    push-to-registry:
-      type: push
-      candidate: ${{build-image}}
-      tag: ${{CF_BRANCH}}
+    #push-to-registry:
+    #  type: push
+    #  candidate: ${{build-image}}
+    #  tag: ${{CF_BRANCH}}
     #  registry: #Optional
     # credentials: #Optional
       #  username:
@@ -26,11 +26,11 @@
      #tag: awesomeness
 
 
-    integration tests:
-      image: alpine:latest
+    unit tests:
+      image: codefresh/angular2-todo:${{CF_BRANCH}}
       commands:
-         - ls
-         - echo running integration tests
+         - echo running unit tests
+         - gulp tslint
          #- curl http://18391060.ngrok.io
         # - curl -X POST -H \'Content-type: application/json\' --data \'{"text":"This is a line of text.\nAnd this is another one."}\'  https://hooks.slack.com/services/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
       description: codefresh example
@@ -44,3 +44,12 @@
           - sh /scripts/slack.sh
 
       description: codefresh example
+
+
+      deploy:
+        image: verchol/slack:latest
+        commands:
+              - echo $MESSAGE
+              - sh /scripts/slack.sh
+
+        description: codefresh example
