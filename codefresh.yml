@@ -20,10 +20,10 @@
       #  password:
 
 
-    #push-dockerhub:
-     #type: push
-     #candidate: ${{build-prj}}
-     #tag: awesomeness
+    push-dockerhub:
+     type: push
+     candidate: ${{build-image}}
+     tag: ${{CF_BRANCH}}
 
 
     unit tests:
