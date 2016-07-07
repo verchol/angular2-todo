@@ -1,0 +1,47 @@
+  version: '1.0'
+#https://hooks.slack.com/services/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
+  steps:
+
+
+    build-image:
+      type: build
+      description: angular example
+      image-name: codefresh/angular2-todo
+      dockerfile: Dockerfile
+      tag: ${{CF_BRANCH}}
+
+    step-name:
+      type: push
+      candidate: ${{build-image}}
+      tag: ${{CF_BRANCH}}
+      registry: #Optional
+
+      #credentials: #Optional
+        #username:verchol
+        #password:oleg1314
+
+
+    #push-dockerhub:
+     #type: push
+     #candidate: ${{build-prj}}
+     #tag: awesomeness
+
+
+    integration tests:
+      image: alpine:latest
+      commands:
+         - ls
+         - echo running integration tests
+         #- curl http://18391060.ngrok.io
+        # - curl -X POST -H \'Content-type: application/json\' --data \'{"text":"This is a line of text.\nAnd this is another one."}\'  https://hooks.slack.com/services/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
+      description: codefresh example
+
+    notify:
+      image: verchol/slack:latest
+      environment:
+        - MESSAGE="build for comit ${{CF_BRANCH}}-${{CF_REVISION}}"
+      commands:
+          - echo $MESSAGE
+          - sh /scripts/slack.sh
+
+      description: codefresh example
