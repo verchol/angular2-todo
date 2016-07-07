@@ -10,7 +10,7 @@
       dockerfile: Dockerfile
       tag: ${{CF_BRANCH}}
 
-    step-name:
+    push-to-registry:
       type: push
       candidate: ${{build-image}}
       tag: ${{CF_BRANCH}}
