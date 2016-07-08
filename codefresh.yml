@@ -29,7 +29,7 @@
     unit tests:
       image: node:6.3.0-onbuild
       commands:
-         - npm install -g gulp; echo running unit tests; gulp tslint
+         - npm install
       description: codefresh example
 
     notify:
