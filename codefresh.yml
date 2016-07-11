@@ -30,7 +30,7 @@
       image: node:6.3.0-onbuild
       commands:
         - npm install
-        - gulp tslint
+        - npm test
         - npm -v
       description: codefresh example
 
