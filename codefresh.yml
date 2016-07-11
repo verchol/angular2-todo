@@ -29,24 +29,25 @@
     unit tests:
       image: node:6.3.0-onbuild
       commands:
-         - npm install
+         - gulp tslint
+         - npm -v
       description: codefresh example
 
-    notify:
-      image: verchol/slack:latest
-      environment:
-        - MESSAGE="build for comit ${{CF_BRANCH}}-${{CF_REVISION}}"
-      commands:
-          - echo $MESSAGE
-          - sh /scripts/slack.sh
-
-      description: codefresh example
-
-
-      deploy:
-        image: verchol/slack:latest
-        commands:
-              - echo $MESSAGE
-              - sh /scripts/slack.sh
-
-        description: codefresh example
+#    notify:
+#      image: verchol/slack:latest
+#      environment:
+#        - MESSAGE="build for comit ${{CF_BRANCH}}-${{CF_REVISION}}"
+#      commands:
+#          - echo $MESSAGE
+#          - sh /scripts/slack.sh
+#
+#      description: codefresh example
+#
+#
+#      deploy:
+#        image: verchol/slack:latest
+#        commands:
+#              - echo $MESSAGE
+#              - sh /scripts/slack.sh
+#
+#        description: codefresh example
